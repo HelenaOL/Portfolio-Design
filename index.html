@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio - Template Base</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <!-- Fonte -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- ==========================
+       ESTILOS
+       ========================== -->
+  <style>
+    :root {
+      --primary: #c7a6ff; 
+      --primary2: #b691ff;
+      --accent: #e8d8ff;
+      --dark: #1f1f1f;
+      --light-bg: #ffffff;
+      --light-text: #1f1f1f;
+      --dark-bg: #1a1128;
+      --dark-text: #f1eaff;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background: linear-gradient(180deg,#faf7ff 0%, #f5f0ff 40%, #efe6ff 100%);
+      color: var(--light-text);
+      padding-top: 90px;
+      transition: .3s;
+    }
+
+    /* ESTRELAS */
+    body::before {
+      content:" ✦ ✧ ✶ ✷ ✸ ✹";
+      font-size: 40px;
+      color: #dccbff;
+      position: fixed;
+      left: 5%;
+      top: 10%;
+      opacity: 0.3;
+      pointer-events: none;
+    }
+    body::after {
+      content:"✦ ✧ ✶ ✷ ✸ ✹ ";
+      font-size: 35px;
+      color: #ccb8ff;
+      position: fixed;
+      right: 8%;
+      bottom: 15%;
+      opacity: 0.28;
+      pointer-events: none;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background: linear-gradient(90deg,var(--primary),var(--primary2));
+      transition: .3s;
+    }
+    .navbar-brand, .nav-link { color:white !important; }
+
+    /* Botão Dark-Light */
+    .mode-btn {
+      background: rgba(255,255,255,0.3);
+      border: 2px solid white;
+      color: white;
+      padding: 6px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: .3s;
+    }
+    .mode-btn:hover { background:white; color: var(--primary); }
+
+    /* Seções */
+    section { padding: 60px 0; }
+
+    .about-card {
+      border-radius:18px;
+      padding:30px;
+      background: #ffffffbd;
+      box-shadow:0 8px 30px rgba(120,69,255,0.15);
+    }
+
+    .skill-box {
+      background:white;
+      border-radius:12px;
+      padding:20px;
+      box-shadow:0 6px 20px rgba(0,0,0,0.06);
+      font-weight:600;
+    }
+
+    .card-project {
+      border:none;
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 10px 30px rgba(0,0,0,0.08);
+      transition:.25s;
+    }
+    .card-project:hover {
+      transform:translateY(-8px);
+      box-shadow:0 18px 40px rgba(0,0,0,0.12);
+    }
+
+    footer {
+      background: linear-gradient(90deg,var(--primary),var(--primary2));
+      color:white;
+      padding:30px 0;
+    }
+
+    /* ====== MODO ESCURO ====== */
+    body.dark-mode {
+      background: var(--dark-bg);
+      color: var(--dark-text);
+    }
+    body.dark-mode .about-card {
+      background: #2a1c3d;
+      color: var(--dark-text);
+    }
+    body.dark-mode .skill-box {
+      background:#33204d;
+      color:white;
+    }
+    body.dark-mode .navbar {
+      background:linear-gradient(90deg,#6f41b9,#5430a6);
+    }
+    body.dark-mode footer {
+      background:linear-gradient(90deg,#6f41b9,#5430a6);
+    }
+    body.dark-mode section.bg-light {
+      background:#26183b !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="#">Meu Portfólio</a>
+
+      <!-- Botão Light / Dark / Auto -->
+      <div class="ms-3">
+        <select id="themeSwitcher" class="mode-btn">
+          <option value="auto">Auto</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </div>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="#habilidades">Habilidades</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contato">Contatos</a></li>
+        </ul>
+
+        <!-- Redes sociais -->
+        <div class="d-flex gap-3 ms-3">
+          <a href="https://br.pinterest.com/Kimzoca_/_saved/" class="text-white fs-4"><i class="fab fa-pinterest"></i></a>
+          <a href="https://wa.me/5511964747178" class="text-white fs-4"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="home" class="balloon-bg">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 py-5">
+          <div class="about-card">
+            <h1 class="display-6">Bem-vindo ao meu mundo!</h1>
+            <p class="lead">Olá! Eu sou a Kimzoca, uma designer gráfica ✨💜</p>
+            <p>
+              <a href="#projetos" class="btn btn-light btn-lg"><i class="fa-solid fa-folder-open"></i> Meus projetos</a>
+              <a href="#contato" class="btn btn-outline-light btn-lg"><i class="fa-solid fa-envelope"></i> Contato</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6 d-none d-lg-block text-center">
+          <img src="img/Winter of aespa _ Purple Cover.jpg" class="img-fluid rounded-circle shadow-lg" style="max-width:320px;">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SOBRE -->
+  <section id="sobre" class="container py-5">
+    <h2 class="mb-4">Sobre Mim</h2>
+    <p>
+      Sou uma designer gráfica apaixonada por criar identidades visuais, artes digitais e projetos que misturam criatividade e estética.
+    </p>
+  </section>
+
+  <!-- HABILIDADES -->
+  <section id="habilidades" class="container py-5">
+    <h2 class="mb-4">Habilidades</h2>
+    <div class="row g-4">
+      <div class="col-6 col-md-3"><div class="skill-box text-center">Design Soft</div></div>
+      <div class="col-6 col-md-3"><div class="skill-box text-center">Dark Aesthetic</div></div>
+      <div class="col-6 col-md-3"><div class="skill-box text-center">Colagem</div></div>
+      <div class="col-6 col-md-3"><div class="skill-box text-center">Minimalismo</div></div>
+    </div>
+  </section>
+
+  <!-- PROJETOS -->
+  <section id="projetos">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2>Designs!!</h2>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card card-project">
+            <img src="img/_ 📸 — 𝓓esign 𝐁aek 𝐂irrus.jpg" alt="">
+            <div class="card-body">
+              <h5>Baek Cirrus 📸 </h5>
+              <p> Design Baek Cirrus Lost In The Cloud.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card card-project">
+            <img src="img/_🍊— 𝒟esign “𝐏edido 𝐄ntregue” !! 𝐃irty 𝐖ork.jpg" alt="">
+            <div class="card-body">
+              <h5>"Pedido entregue!" 🍊</h5>
+              <p>Design "Pedido entregue!" Original (não permitido para uso). </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card card-project">
+            <img src="img/_🩰— 𝒟esign 𝐇irai 𝐌omo 𝐍ew 𝐏ost.jpg" alt="">
+            <div class="card-body">
+              <h5> New Post, Hirai Momo 🩰</h5>
+              <p>Design "New Post" Tema Hirai Momo.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" class="py-5 bg-light">
+    <div class="container text-center">
+      <h2 class="mb-4">Contato</h2>
+      <p class="mb-4">Minhas redes:</p>
+
+      <div class="d-flex justify-content-center gap-4">
+
+        <!-- WhatsApp automático -->
+        <a href="https://wa.me/5511964747178" class="btn btn-success px-4 py-2" target="_blank">
+          <i class="fab fa-whatsapp"></i> Meu WhatsApp
+        </a>
+
+        <!-- Pinterest -->
+        <a href="https://br.pinterest.com/Kimzoca_/_saved/" class="btn btn-danger px-4 py-2" target="_blank">
+          <i class="fab fa-pinterest"></i> Meu Pinterest
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container text-center">
+      <h5 class="mb-1">Meu Portfólio</h5>
+      <p class="small">Links úteis: <a href="#" class="text-white">Linkedin</a></p>
+      <p class="mb-0">&copy; 2025 - Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT: Alternância Light / Dark / Auto -->
+  <script>
+    const select = document.getElementById("themeSwitcher");
+
+    function applyTheme(mode) {
+      if (mode === "dark") {
+        document.body.classList.add("dark-mode");
+      } else if (mode === "light") {
+        document.body.classList.remove("dark-mode");
+      } else { 
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          document.body.classList.add("dark-mode");
+        } else {
+          document.body.classList.remove("dark-mode");
+        }
+      }
+    }
+
+    select.addEventListener("change", () => applyTheme(select.value));
+    applyTheme("auto");  
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+ 
